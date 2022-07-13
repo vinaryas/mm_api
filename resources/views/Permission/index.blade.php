@@ -11,6 +11,15 @@
     {{ csrf_field() }}
     <div class="card-body">
         <div class="row">
+            <div class="col-md-12">
+                <label> Aplikasi </label>
+                <select name="aplikasi_id" id="aplikasi_id" class="select2 form-control form-control-sm" required>
+                    <option> </option>
+                    @foreach ($apps as $app)
+                    <option value="{{ $app->id }}">{{ $app->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="col-md-6">
                 <label> Parent </label>
                 <select name="parent_id" id="parent_id" class="select2 form-control form-control-sm" required>
@@ -35,7 +44,7 @@
         </div>
         <br>
         <div class="float-right">
-            <button type="submit" class="btn btn-sm btn-info" name="submit" id="submit" >
+            <button type="submit" class="btn btn-info" name="submit" id="submit" >
                 <i class="fas fa-save"></i> Submit
             </button>
         </div>

@@ -22,7 +22,7 @@ class PermissionRoleService
     }
 
     public function find($id){
-        return $this->all()->where('permission_id', $id);
+        return $this->all()->where('aplikasi_id', $id);
     }
 
 }

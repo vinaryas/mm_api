@@ -22,7 +22,7 @@ class RoleUserService
     }
 
     public function find($id){
-        return $this->all()->where('user_id', $id);
+        return $this->all()->where('aplikasi_id', $id);
     }
 
 }

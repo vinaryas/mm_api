@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="float-right">
-            <button type="submit" class="btn btn-sm btn-info" name="submit" id="submit" >
+            <button type="submit" class="btn btn-info" name="submit" id="submit" >
                 <i class="fas fa-save"></i> Submit
             </button>
         </div>
@@ -34,7 +34,7 @@
                 @foreach ($regions as $region)
                     <tr>
                         <td>{{ $region->id }}</td>
-                        <td>{{ $region->region }}</td>
+                        <td>{{ $region->name }}</td>
                     </tr>
                 @endforeach
             </tbody>

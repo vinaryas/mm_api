@@ -16,6 +16,7 @@ class UserController extends Controller
         $roles = RoleService::all()->get();
         $regions = RegionService::all()->get();
 
+
         return view('User.index', compact('users', 'roles', 'regions'));
     }
 
@@ -27,11 +28,9 @@ class UserController extends Controller
                 'name'=>$request->name,
                 'email'=>$request->email,
                 'region_id'=>$request->region_id,
-                'role_id'=>$request->role_id,
                 'password' => Hash::make($request->password),
                 'password2' => Hash::make($request->password),
             ];
-
             $store = UserService::store($data);
             DB::commit();
             return redirect()->route('user.index');

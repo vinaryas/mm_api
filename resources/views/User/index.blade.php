@@ -11,44 +11,35 @@
     {{ csrf_field() }}
     <div class="card-body">
         <div class="row">
-            <div class="col-md-4">
-                <label>NIK</label>
-                <input type="text" id="id" name="id" class="form-control form-control-sm" maxlength="9" required>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <label>Name</label>
                 <input type="text" id="name" name="name" class="form-control form-control-sm" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
+                <label>NIK</label>
+                <input type="text" id="id" name="id" class="form-control form-control-sm" maxlength="9" required>
+            </div>
+            <div class="col-md-6">
                 <label>Password</label>
                 <input type="text" id="password" name="password" class="form-control form-control-sm" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label> Email </label>
                 <input type="email" id="email" name="email" class="form-control form-control-sm" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label> Region </label>
                 <select name="region_id" id="region_id" class="select2 form-control form-control-sm" required>
                     <option> </option>
                     @foreach ($regions as $region)
-                    <option value="{{ $region->id }}">{{ $region->region }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Role</label>
-                <select  name="role_id" id="role_id" class="select2 form-control form-control-sm" required>
-                    <option> </option>
-                    @foreach ($roles as $role)
-                    <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                    <option value="{{ $region->id }}">{{ $region->name }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
         <br>
         <div class="float-right">
-            <button type="submit" class="btn btn-sm btn-info" name="submit" id="submit" >
+            <button type="submit" class="btn btn-info" name="submit" id="submit" >
                 <i class="fas fa-save"></i> Submit
             </button>
         </div>
@@ -60,8 +51,6 @@
                     <th>NIK</th>
                     <th>Name</th>
                     <th>email</th>
-                    <th>Role</th>
-                    <th>Detail</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,9 +59,6 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        {{-- <td>{{ $detail->roles->displayname }}</td> --}}
-                        <td> tester </td>
-                        <td><a href="" class="btn btn-info btn-sm"> Detail <i class="fas fa-angle-right"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>

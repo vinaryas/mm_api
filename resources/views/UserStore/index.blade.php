@@ -7,26 +7,30 @@
 @stop
 
 @section('content')
-<form class="card" action="{{ route('store.store') }}" method="POST">
+<form class="card" action="{{ route('user_store.store') }}" method="POST">
     {{ csrf_field() }}
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">
-                <label>Name</label>
-                <input type="text" id="name" name="name" class="form-control form-control-sm" required>
+                <label> Store </label>
+                <select name="store_id" id="store_id" class="select2 form-control form-control-sm" required>
+                    <option> </option>
+                    @foreach ($stores as $store)
+                    <option value="{{ $store->id }}">{{ $store->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-md-6">
-                <label>region</label>
-                <select name="region_id" id="region_id" class="select2 form-control form-control-sm" required>
+                <label> User </label>
+                <select name="user_id" id="user_id" class="select2 form-control form-control-sm" required>
                     <option> </option>
-                    @foreach ($regions as $region)
-                    <option value="{{ $region->id }}">{{ $region->region }}</option>
+                    @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="col-md-12">
-                <label>Email</label>
-                <input type="email" id="email" name="email" class="form-control form-control-sm" required>
+                <input type="hidden" id="user_type" name="user_type" value="{{ 'App\User' }}" class="form-control form-control-sm" required>
             </div>
         </div>
         <br>
@@ -40,19 +44,17 @@
         <table class="table table-bordered table-striped" id="table" style="width: 100%;">
             <thead>
                 <tr>
-                    <th> No. </th>
-                    <th> Name </th>
-                    <th> region_id </th>
-                    <th> Email </th>
+                    <th> no. </th>
+                    <th> user_id </th>
+                    <th> role_id </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($stores as $store)
+                @foreach ($userStores as $userStore)
                     <tr>
-                        <td>{{ $store->id }}</td>
-                        <td>{{ $store->name }}</td>
-                        <td>{{ $store->region_id }}</td>
-                        <td>{{ $store->email }}</td>
+                        <td>{{ $userStore->id }}</td>
+                        <td>{{ $userStore->user_id }}</td>
+                        <td>{{ $userStore->store_id }}</td>
                     </tr>
                 @endforeach
             </tbody>

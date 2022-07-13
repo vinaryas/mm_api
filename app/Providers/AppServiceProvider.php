@@ -32,17 +32,31 @@ class AppServiceProvider extends ServiceProvider
                 'icon' => 'fas fa-tachometer-alt',
                 'active' => ['home'],
             ]);
+            $event->menu->add([
+                'text' => 'Aplikasi',
+                'url' => route('aplikasi.index'),
+                'icon' => 'fas fa-bullseye',
+                'active' => ['aplikasi.index'],
+            ]);
 
             $event->menu->add([
-                'text' => 'Manajemen Otorisasi',
+                'text' => 'Region',
+                'url' => route('region.index'),
+                'icon' => 'fas fa-bullseye',
+                'active' => ['region.index'],
+            ]);
+
+            $event->menu->add([
+                'text' => 'User',
+                'url' => route('user.index'),
+                'icon' => 'fas fa-bullseye',
+                'active' => ['user.index'],
+            ]);
+
+            $event->menu->add([
+                'text' => 'Role',
                 'icon' => 'fas fa-user-shield',
                 'submenu' => [
-                    [
-                        'text' => 'User',
-                        'url' => route('user.index'),
-                        'icon' => 'fas fa-bullseye',
-                        'active' => ['user.index'],
-                    ],
                     [
                         'text' => 'Role',
                         'url' => route('role.index'),
@@ -50,11 +64,18 @@ class AppServiceProvider extends ServiceProvider
                         'active' => ['role.index'],
                     ],
                     [
-                        'text' => 'Region',
-                        'url' => route('region.index'),
+                        'text' => 'Role User',
+                        'url' => route('role_user.index'),
                         'icon' => 'fas fa-bullseye',
-                        'active' => ['region.index'],
+                        'active' => ['role_user.index'],
                     ],
+                ],
+            ]);
+
+            $event->menu->add([
+                'text' => 'Permission',
+                'icon' => 'fas fa-user-shield',
+                'submenu' => [
                     [
                         'text' => 'Permission',
                         'url' => route('permission.index'),
@@ -67,6 +88,13 @@ class AppServiceProvider extends ServiceProvider
                         'icon' => 'fas fa-bullseye',
                         'active' => ['permission_role.index'],
                     ],
+                ],
+            ]);
+
+            $event->menu->add([
+                'text' => 'Store',
+                'icon' => 'fas fa-user-shield',
+                'submenu' => [
                     [
                         'text' => 'Store',
                         'url' => route('store.index'),
@@ -74,10 +102,10 @@ class AppServiceProvider extends ServiceProvider
                         'active' => ['store.index'],
                     ],
                     [
-                        'text' => 'Role User',
-                        'url' => route('roleUser.index'),
+                        'text' => 'Store User',
+                        'url' => route('user_store.index'),
                         'icon' => 'fas fa-bullseye',
-                        'active' => ['roleUser.index'],
+                        'active' => ['user_store.index'],
                     ],
                 ],
             ]);

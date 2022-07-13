@@ -40,6 +40,12 @@ Route::post('/permission_role', 'PermissionRoleController@store')->name('permiss
 Route::get('/store', 'StoreController@index')->name('store.index');
 Route::post('/store', 'StoreController@store')->name('store.store');
 
-Route::get('/roleUser', 'RoleUserController@index')->name('roleUser.index');
-Route::post('/roleUser', 'RoleUserController@store')->name('roleUser.store');
+Route::get('/role_user', 'RoleUserController@index')->name('role_user.index');
+Route::post('/role_user', 'RoleUserController@store')->name('role_user.store');
+
+Route::get('/aplikasi', 'AplikasiController@index')->name('aplikasi.index');
+Route::post('/aplikasi', 'AplikasiController@store')->name('aplikasi.store');
+
+Route::get('/user_store', 'userStoreController@index')->name('user_store.index');
+Route::post('/user_store', 'userStoreController@store')->name('user_store.store');
 

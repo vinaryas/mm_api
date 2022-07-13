@@ -7,13 +7,13 @@
 @stop
 
 @section('content')
-<form class="card" action="{{ route('role.store') }}" method="POST">
+<form class="card" action="{{ route('role_user.store') }}" method="POST">
     {{ csrf_field() }}
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">
                 <label> Role </label>
-                <select name="user_id" id="user_id" class="select2 form-control form-control-sm" required>
+                <select name="role_id" id="role_id" class="select2 form-control form-control-sm" required>
                     <option> </option>
                     @foreach ($roles as $role)
                     <option value="{{ $role->id }}">{{ $role->display_name }}</option>
@@ -22,10 +22,19 @@
             </div>
             <div class="col-md-6">
                 <label> User </label>
-                <select name="role_id" id="role_id" class="select2 form-control form-control-sm" required>
+                <select name="user_id" id="user_id" class="select2 form-control form-control-sm" required>
                     <option> </option>
                     @foreach ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-12">
+                <label> Aplikasi </label>
+                <select name="aplikasi_id" id="aplikasi_id" class="select2 form-control form-control-sm" required>
+                    <option> </option>
+                    @foreach ($apps as $app)
+                    <option value="{{ $app->id }}">{{ $app->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -35,7 +44,7 @@
         </div>
         <br>
         <div class="float-right">
-            <button type="submit" class="btn btn-sm btn-info" name="submit" id="submit" >
+            <button type="submit" class="btn btn-info" name="submit" id="submit" >
                 <i class="fas fa-save"></i> Submit
             </button>
         </div>

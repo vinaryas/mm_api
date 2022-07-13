@@ -29,10 +29,19 @@
                     @endforeach
                 </select>
             </div>
+            <div class="col-md-12">
+                <label> Aplikasi </label>
+                <select name="aplikasi_id" id="aplikasi_id" class="select2 form-control form-control-sm" required>
+                    <option> </option>
+                    @foreach ($apps as $app)
+                    <option value="{{ $app->id }}">{{ $app->name }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         <br>
         <div class="float-right">
-            <button type="submit" class="btn btn-sm btn-info" name="submit" id="submit" >
+            <button type="submit" class="btn btn-info" name="submit" id="submit" >
                 <i class="fas fa-save"></i> Submit
             </button>
         </div>
@@ -41,19 +50,17 @@
         <table class="table table-bordered table-striped" id="table" style="width: 100%;">
             <thead>
                 <tr>
-                    <th> No. </th>
-                    <th> Permission </th>
-                    <th> Display Name </th>
-                    <th> Description </th>
+                    <th> permission_id </th>
+                    <th> role_id </th>
+                    <th> aplikasi_id </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($roles as $role)
+                @foreach ($permissionRoles as $permissionRole)
                     <tr>
-                        <td>{{ $role->id }}</td>
-                        <td>{{ $role->name }}</td>
-                        <td>{{ $role->display_name }}</td>
-                        <td>{{ $role->description }}</td>
+                        <td>{{ $permissionRole->permission_id }}</td>
+                        <td>{{ $permissionRole->role_id }}</td>
+                        <td>{{ $permissionRole->aplikasi_id }}</td>
                     </tr>
                 @endforeach
             </tbody>
