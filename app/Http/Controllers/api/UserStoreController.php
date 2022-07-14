@@ -3,26 +3,26 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Region;
-use App\Services\Supports\RegionService;
+use App\Models\UserStore;
+use App\Services\Supports\UserStoreService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class RegionController extends Controller
+class UserStoreController extends Controller
 {
     public function index(){
-        $regions  = RegionService::all()->get();
+        $permissionRoles  = UserStoreService::all()->get();
 
         return response()->json([
-            'data' => $regions
+            'data' => $permissionRoles
         ], 200);
     }
 
     public function detail($id){
-        $regions = RegionService::find($id)->first();
-        if($regions){
+        $permissionRoles = UserStoreService::find($id)->first();
+        if($permissionRoles){
             return response()->json([
-                'data' => $regions
+                'data' => $permissionRoles
             ], 200);
         }else{
             return response()->json([
@@ -33,14 +33,16 @@ class RegionController extends Controller
 
     public function store(Request $request){
         $validasi = Validator::make($request->all(), [
-            'name'     => 'required',
+            'permission_id'=>'required',
+            'role_id'=>'required',
         ]);
 
         if($validasi->fails()){
             return response()->json( $validasi->errors() );
         }else{
-            $post   = new Region();
-            $post->name    = $request->name;
+            $post   = new UserStore();
+            $post->permission_id    = $request->permission_id;
+            $post->role_id      = $request->role_id;
             if($post->save()){
                 return response()->json( 'Post Berhasil Disimpan');
             }else{
@@ -50,7 +52,7 @@ class RegionController extends Controller
     }
 
     public function destroy($id){
-        $post = RegionService::findOrFail($id);
+        $post = UserStoreService::findOrFail($id);
 
         if($post->delete()){
             return response([

@@ -8,7 +8,7 @@ use App\Services\Supports\PermissionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class permissionController extends Controller
+class PermissionController extends Controller
 {
     public function index(){
         $permissions  = PermissionService::all()->get();
@@ -18,8 +18,8 @@ class permissionController extends Controller
         ], 200);
     }
 
-    public function detail($id){
-        $permissions = PermissionService::find($id)->first();
+    public function detail($aplikasi_id){
+        $permissions = PermissionService::find($aplikasi_id)->get();
         if($permissions){
             return response()->json([
                 'data' => $permissions

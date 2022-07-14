@@ -8,7 +8,7 @@ use App\Services\Supports\PermissionRoleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class permissionRoleController extends Controller
+class PermissionRoleController extends Controller
 {
     public function index(){
         $permissionRoles  = PermissionRoleService::all()->get();
@@ -18,8 +18,8 @@ class permissionRoleController extends Controller
         ], 200);
     }
 
-    public function detail($id){
-        $permissionRoles = PermissionRoleService::find($id)->first();
+    public function detail($aplikasi_id){
+        $permissionRoles = PermissionRoleService::find($aplikasi_id)->get();
         if($permissionRoles){
             return response()->json([
                 'data' => $permissionRoles

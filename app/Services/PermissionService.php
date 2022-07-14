@@ -21,8 +21,8 @@ class PermissionService
         return $this->Permission->create($data);
     }
 
-    public function find($id){
-        return $this->all()->where('aplikasi_id', $id);
+    public function find($aplikasi_id){
+        return $this->all()->where('aplikasi_id', $aplikasi_id);
     }
 
 }

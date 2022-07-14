@@ -8,7 +8,7 @@ use App\Services\Supports\StoreService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class storeController extends Controller
+class StoreController extends Controller
 {
     public function index(){
         $permissions  = StoreService::all()->get();

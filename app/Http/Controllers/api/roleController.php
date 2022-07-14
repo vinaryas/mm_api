@@ -8,7 +8,7 @@ use App\Services\Supports\RoleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class roleController extends Controller
+class RoleController extends Controller
 {
     public function index(){
         $roles  = RoleService::all()->get();
@@ -18,8 +18,8 @@ class roleController extends Controller
         ], 200);
     }
 
-    public function detail($id){
-        $roles = RoleService::find($id)->first();
+    public function detail($aplikasi_id){
+        $roles = RoleService::find($aplikasi_id)->get();
         if($roles){
             return response()->json([
                 'data' => $roles

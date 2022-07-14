@@ -8,7 +8,7 @@ use App\Services\Supports\RoleUserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class roleUserController extends Controller
+class RoleUserController extends Controller
 {
     public function index(){
         $roleUsers  = RoleUserService::all()->get();
@@ -18,8 +18,8 @@ class roleUserController extends Controller
         ], 200);
     }
 
-    public function detail($id){
-        $roleUsers = RoleUserService::find($id)->first();
+    public function detail($aplikasi_id){
+        $roleUsers = RoleUserService::find($aplikasi_id)->get();
         if($roleUsers){
             return response()->json([
                 'data' => $roleUsers
