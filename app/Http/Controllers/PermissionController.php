@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\DB;
 class PermissionController extends Controller
 {
     public function index(){
-        $parents = PermissionService::all()->get();
+        $permissions = PermissionService::all()->get();
         $apps = AplikasiService::all()->get();
 
-        return view('permission.index', compact('parents', 'apps'));
+        return view('permission.index', compact('permissions', 'apps'));
     }
 
     public function store(Request $request){

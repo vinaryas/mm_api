@@ -21,8 +21,8 @@ class UserService
         return $this->User->create($data);
     }
 
-    public function find($id){
-        return $this->all()->where('id', $id);
+    public function find($nik){
+        return $this->all()->where('nik', $nik);
     }
 
     public function getById($storeId){

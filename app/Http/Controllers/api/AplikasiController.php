@@ -18,8 +18,8 @@ class AplikasiController extends Controller
         ], 200);
     }
 
-    public function detail($id){
-        $permissionRoles = AplikasiService::find($id)->first();
+    public function detail($parentId){
+        $permissionRoles = AplikasiService::find($parentId)->get();
         if($permissionRoles){
             return response()->json([
                 'data' => $permissionRoles

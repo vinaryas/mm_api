@@ -28,7 +28,7 @@ class UserStoreController extends Controller
 
             $store = UserStoreService::store($data);
             DB::commit();
-            return redirect()->route('user.index');
+            return redirect()->route('user_store.index');
         }catch(\Throwable $th){
             dd($th);
         }

@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6">
                 <label>NIK</label>
-                <input type="text" id="id" name="id" class="form-control form-control-sm" maxlength="9" required>
+                <input type="text" id="nik" name="nik" class="form-control form-control-sm" maxlength="9" required>
             </div>
             <div class="col-md-6">
                 <label>Password</label>

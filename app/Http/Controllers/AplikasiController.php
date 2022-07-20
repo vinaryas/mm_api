@@ -18,6 +18,7 @@ class AplikasiController extends Controller
         DB::beginTransaction();
         try{
             $data = [
+                'parent_id'=>$request->parent_id,
                 'name'=>$request->name,
             ];
             $store = AplikasiService::store($data);

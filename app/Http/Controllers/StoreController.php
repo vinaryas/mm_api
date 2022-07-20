@@ -20,6 +20,7 @@ class StoreController extends Controller
         DB::beginTransaction();
         try{
             $data = [
+                'id'=>$request->id,
                 'name'=>$request->name,
                 'region_id'=>$request->region_id,
                 'email'=>$request->email,

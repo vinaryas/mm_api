@@ -21,8 +21,8 @@ class AplikasiService
         return $this->Aplikasi->create($data);
     }
 
-    public function find($id){
-        return $this->all()->where('id', $id);
+    public function find($parentId){
+        return $this->all()->where('parent_id', $parentId);
     }
 
 }

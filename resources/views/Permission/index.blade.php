@@ -24,8 +24,8 @@
                 <label> Parent </label>
                 <select name="parent_id" id="parent_id" class="select2 form-control form-control-sm" required>
                     <option value="{{ 0 }}"> none </option>
-                    @foreach ($parents as $parent)
-                    <option value="{{ $parent->id }}">{{ $parent->display_name }}</option>
+                    @foreach ($permissions as $permission)
+                    <option value="{{ $permission->id }}">{{ $permission->display_name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -60,12 +60,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($parents as $parent)
+                @foreach ($permissions as $permission)
                     <tr>
-                        <td>{{ $parent->id }}</td>
-                        <td>{{ $parent->name }}</td>
-                        <td>{{ $parent->display_name }}</td>
-                        <td>{{ $parent->description }}</td>
+                        <td>{{ $permission->id }}</td>
+                        <td>{{ $permission->name }}</td>
+                        <td>{{ $permission->display_name }}</td>
+                        <td>{{ $permission->description }}</td>
                     </tr>
                 @endforeach
             </tbody>

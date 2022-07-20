@@ -19,8 +19,8 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function detail($username){
-        $users = UserService::find($username)->first();
+    public function detail($nik){
+        $users = UserService::find($nik)->first();
         if($users){
             return response()->json([
                 'data' => $users

@@ -12,6 +12,10 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">
+                <label>Id</label>
+                <input type="number" id="id" name="id" class="form-control form-control-sm" required>
+            </div>
+            <div class="col-md-6">
                 <label>Name</label>
                 <input type="text" id="name" name="name" class="form-control form-control-sm" required>
             </div>
@@ -20,7 +24,7 @@
                 <select name="region_id" id="region_id" class="select2 form-control form-control-sm" required>
                     <option> </option>
                     @foreach ($regions as $region)
-                    <option value="{{ $region->id }}">{{ $region->region }}</option>
+                    <option value="{{ $region->id }}">{{ $region->name }}</option>
                     @endforeach
                 </select>
             </div>
